@@ -55,6 +55,8 @@ class LoginController extends ControllerBase{
      */
     public function outAction(){
         $session = $this->seeison->get('userId');
+        //删除session
+
         return $this->reponse->redirect('login/index');
     }
 }

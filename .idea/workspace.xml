@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4a60d67-1f2b-4b19-a06b-6da1bb7f1967" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/phalcon/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/phalcon/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phalcon/app/controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/phalcon/app/controllers/IndexController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phalcon/app/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/phalcon/app/controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phalcon/app/models/FatAdminUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/phalcon/app/models/FatAdminUser.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phalcon/app/controllers/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="57" column="55" lean-forward="true" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+            <state relative-caret-position="642">
+              <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
               <folding>
                 <element signature="e#6#19#0#PHP" expanded="true" />
                 <element signature="e#24#51#0#PHP" expanded="true" />
@@ -234,12 +231,12 @@
       <workItem from="1561343445470" duration="3994000" />
       <workItem from="1561422715218" duration="3001000" />
       <workItem from="1561538560843" duration="866000" />
-      <workItem from="1564728158327" duration="7638000" />
+      <workItem from="1564728158327" duration="8314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15499000" />
+    <option name="totallyTimeSpent" value="16175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -348,8 +345,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phalcon/app/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="57" column="55" lean-forward="true" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+        <state relative-caret-position="642">
+          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
           <folding>
             <element signature="e#6#19#0#PHP" expanded="true" />
             <element signature="e#24#51#0#PHP" expanded="true" />
