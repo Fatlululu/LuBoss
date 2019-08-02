@@ -18,16 +18,16 @@ class LoginController extends ControllerBase{
                 $this->flash->error("用户名或者密码不能为空");
             }
             //检测
-            $check = $this->checkAction($post);
-            if($check['date'] == 'success'){
+            $data = $this->checkAction($post);
+            if($data['date'] == 'success'){
                 //登陆成功
-                $this->session->get("userId",$userId);
-                $this->flash->success($check['msg']);
+                $this->session->get("userId",$data['userId']);
+                $this->flash->success($data['msg']);
                 //加入系统登陆日记
                 return $this->response->redirect('index');
             }else{
                 //登陆失败
-                $this->flash->error($check['msg']);
+                $this->flash->error($data['msg']);
             }
 
         }
@@ -39,7 +39,14 @@ class LoginController extends ControllerBase{
     public function checkAction($data){
         $password = $data['adminPassword'];
         $user = $data['adminUser'];
-        $info = FatAdminUser::findFist()
+        $data = ['date'=>'error', 'msg'=> "用户名或者密码错误",'userId'=>''];
+        $info = FatAdminUser::findFirst(['conditions'=> "adminUser = '".$user."' and password = '".$password."'"]);
+        if(!empty($info)){
+            $data['date'] = 'success';
+            $data['msg'] = '验证成功';
+            $data['userId'] = '验证成功';
+        }
+        return $data;
     }
 
     /**
@@ -47,7 +54,8 @@ class LoginController extends ControllerBase{
      * @param $userId
      */
     public function outAction(){
-
+        $session = $this->seeison->get('userId');
+        return $this->reponse->redirect('login/index');
     }
 }
 

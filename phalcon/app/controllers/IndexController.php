@@ -1,11 +1,18 @@
 <?php
 
+
 class IndexController extends ControllerBase
 {
 
-    public function indexAction()
+    //验证
+    public function initialize()
     {
 
+    }
+
+    public function indexAction()
+    {
+        $tiele = "首页";
     }
 
 
