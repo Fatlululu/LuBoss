@@ -4,6 +4,7 @@
  * */
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\Model;
+use Phalcon\Mvc\View;
 
 class LoginController extends ControllerBase{
 
@@ -12,6 +13,10 @@ class LoginController extends ControllerBase{
      * @return mixed
      */
     public function indexAction(){
+        $title = "登陆";
+//        $this->view->setVar('title',$title);
+//        $this->view->setVar('title',$title);
+        $this->view->title = $title;
         if($this->request->isPost()){
             $post = $this->request->getPost();
             if(empty($post['adminUser']) || empty($post['adminPassword'])){
@@ -21,10 +26,10 @@ class LoginController extends ControllerBase{
             $data = $this->checkAction($post);
             if($data['date'] == 'success'){
                 //登陆成功
-                $this->session->get("userId",$data['userId']);
+                $this->session->set("userId",$data['userId']);
                 $this->flash->success($data['msg']);
                 //加入系统登陆日记
-                return $this->response->redirect('index');
+                return $this->response->redirect('index/index');
             }else{
                 //登陆失败
                 $this->flash->error($data['msg']);
@@ -44,7 +49,7 @@ class LoginController extends ControllerBase{
         if(!empty($info)){
             $data['date'] = 'success';
             $data['msg'] = '验证成功';
-            $data['userId'] = '验证成功';
+            $data['userId'] = $info->id ;
         }
         return $data;
     }
@@ -56,7 +61,9 @@ class LoginController extends ControllerBase{
     public function outAction(){
         $session = $this->seeison->get('userId');
         //删除session
-
+        if(!empty($session)){
+           $this->seeison->remove('userId');
+        }
         return $this->reponse->redirect('login/index');
     }
 }

@@ -5,6 +5,8 @@
  */
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
+use Phalcon\Config;
+use Phalcon\Logger;
 
 return new \Phalcon\Config([
     'database' => [
@@ -29,5 +31,12 @@ return new \Phalcon\Config([
         // of the webpspace.  This will break if the public/index.php entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-    ]
+    ],
+    'logger' => [
+        'path' => APP_PATH . '/logs/',
+        'format' => '%date% [%type%] %message%',
+        'date' => 'D j H:i:s',
+        'logLevel' => Logger::DEBUG,
+        'filename' => 'application.log',
+    ],
 ]);

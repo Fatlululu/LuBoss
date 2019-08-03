@@ -5,14 +5,16 @@ class IndexController extends ControllerBase
 {
 
     //验证
-    public function initialize()
-    {
-
-    }
+//    public function initialize()
+//    {
+//        if($this->session->get('userId') == ''){
+//            $this->response->redirect('login/index');
+//        }
+//    }
 
     public function indexAction()
     {
-        $tiele = "首页";
+        $title = "首页";
     }
 
 
