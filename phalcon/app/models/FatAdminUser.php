@@ -19,11 +19,11 @@ class FatAdminUser extends Model{
 
     }
 
-    public function find($parameters = null){
+    public static function find($parameters = null){
         return parent::find($parameters);
     }
 
-    public function findFirst($parameters = null){
+    public static function findFirst($parameters = null){
         return parent::findFirst($parameters);
     }
 

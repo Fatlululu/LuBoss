@@ -1,5 +1,6 @@
 <?php
-
+use Phalcon\Mvc\View;
+use Phalcon\Mvc\Model;
 
 class IndexController extends ControllerBase
 {
@@ -15,6 +16,7 @@ class IndexController extends ControllerBase
     public function indexAction()
     {
         $title = "首页";
+        $this->view->setVar('title',$title);
     }
 
 

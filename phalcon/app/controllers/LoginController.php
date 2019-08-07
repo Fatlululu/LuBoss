@@ -14,27 +14,27 @@ class LoginController extends ControllerBase{
      */
     public function indexAction(){
         $title = "登陆";
-//        $this->view->setVar('title',$title);
-//        $this->view->setVar('title',$title);
-        $this->view->title = $title;
+        $this->view->setVar('title',$title);
         if($this->request->isPost()){
             $post = $this->request->getPost();
-            if(empty($post['adminUser']) || empty($post['adminPassword'])){
+            if(empty($post['adminUser']) || empty($post['password'])){
                 $this->flash->error("用户名或者密码不能为空");
             }
             //检测
-            $data = $this->checkAction($post);
-            if($data['date'] == 'success'){
+            $date = $this->checkAction($post);
+            if($date['date'] == 'success'){
                 //登陆成功
-                $this->session->set("userId",$data['userId']);
-                $this->flash->success($data['msg']);
+                $this->session->set("userId",$date['userId']);
+//                $this->flash->success($data['msg']);
                 //加入系统登陆日记
-                return $this->response->redirect('index/index');
+                //跳转
+//                return $this->response->redirect('index/index');
             }else{
-                //登陆失败
-                $this->flash->error($data['msg']);
-            }
 
+                //登陆失败
+//                return $this->flash->error($data['msg']);
+            }
+            return json_encode($date);
         }
     }
 
@@ -42,7 +42,7 @@ class LoginController extends ControllerBase{
      *登陆验证
      */
     public function checkAction($data){
-        $password = $data['adminPassword'];
+        $password = $data['password'];
         $user = $data['adminUser'];
         $data = ['date'=>'error', 'msg'=> "用户名或者密码错误",'userId'=>''];
         $info = FatAdminUser::findFirst(['conditions'=> "adminUser = '".$user."' and password = '".$password."'"]);

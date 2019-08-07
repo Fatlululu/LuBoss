@@ -1,5 +1,6 @@
 <?php
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Mvc\Application;
 
 error_reporting(E_ALL);
 
@@ -37,7 +38,7 @@ try {
     /**
      * Handle the request
      */
-    $application = new \Phalcon\Mvc\Application($di);
+    $application = new Application($di);
 
 //    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
     echo $application->handle()
