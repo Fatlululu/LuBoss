@@ -24,7 +24,7 @@ class LoginController extends ControllerBase{
             $date = $this->checkAction($post);
             if($date['date'] == 'success'){
                 //登陆成功
-                $this->session->set("userId",$date['userId']);
+                $this->session->set("user_info",$date['user_info']);
 //                $this->flash->success($data['msg']);
                 //加入系统登陆日记
                 //跳转
@@ -49,7 +49,7 @@ class LoginController extends ControllerBase{
         if(!empty($info)){
             $data['date'] = 'success';
             $data['msg'] = '验证成功';
-            $data['userId'] = $info->id ;
+            $data['user_info'] = $info ;
         }
         return $data;
     }

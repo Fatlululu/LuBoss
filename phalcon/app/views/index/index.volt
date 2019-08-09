@@ -1,4 +1,4 @@
-{% include "common/header.volt" %}
+{% extends "common/header.volt" %}
 {% block centent %}
     <div class="layui-body layui-form">
         <div class="layui-tab mag0" lay-filter="bodyTab" id="top_tabs_box">
@@ -17,7 +17,6 @@
             </ul>
             <div class="layui-tab-content clildFrame">
                 <div class="layui-tab-item layui-show">
-{#                    <iframe src="page/main.html"></iframe>#}
                 </div>
             </div>
         </div>

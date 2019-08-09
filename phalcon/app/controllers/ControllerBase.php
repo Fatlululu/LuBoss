@@ -15,7 +15,7 @@ class ControllerBase extends Controller
         //获取控制器名字
         $controllerName = $dispatcher->getControllerName();
         //未登录返回登陆页面
-        if($this->session->get('userId') == '' && $controllerName != 'login'){
+        if($this->session->get('user_info') == '' && $controllerName != 'login'){
             $this->response->redirect('login/index');
         }
         //空操作
