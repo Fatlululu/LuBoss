@@ -7,6 +7,7 @@
             <a href="javascript:;" class="seraph hideMenu icon-caidan" style=""><p style="font-size: 20px">三</p></a>
             <!-- 顶级菜单 -->
             <ul class="layui-nav mobileTopLevelMenus" mobile>
+            <ul class="layui-nav mobileTopLevelMenus" mobile>
                 <li class="layui-nav-item" data-menu="contentManagement">
                     <a href="javascript:;"><i class="seraph icon-caidan"></i><cite>layuiCMS</cite></a>
                     <dl class="layui-nav-child">
@@ -27,9 +28,9 @@
 {#                <li class="layui-nav-item" data-menu="systemeSttings" pc>#}
 {#                    <a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>系统设置</cite></a>#}
 {#                </li>#}
-                {% for nav in nav_list %}
-                    <li class="layui-nav-item" data-menu="{{ nav.href }}" data-id = "{{ nav.id }}" pc>
-                        <a href="javascript:;"><i class="layui-icon" data-icon="{{ nav.icon }}"></i><cite>{{ nav.title }}</cite></a>
+                {% for nav in navList %}
+                    <li class="layui-nav-item" data-menu="{{ nav['href'] }}" data-id = "{{ nav['id'] }}" pc>
+                        <a href="javascript:;"><i class="layui-icon" data-icon="{{ nav['icon'] }}"></i><cite>{{ nav['title'] }}</cite></a>
                     </li>
                 {% endfor %}
             </ul>
@@ -43,7 +44,7 @@
                     <a href="javascript:;"><i class="seraph icon-lock"></i><cite>锁屏</cite></a>
                 </li>
                 <li class="layui-nav-item" id="userInfo">
-                    <a href="javascript:;"><img src="../../public/img/face.jpg" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminUser">{{ user_info.adminUser }}</cite></a>
+                    <a href="javascript:;"><img src="../../public/img/face.jpg" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminUser">{{ user_info['adminUser'] }}</cite></a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
                         <dd><a href="javascript:;" data-url="{{ url('login/') }}"><i class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
@@ -60,7 +61,7 @@
     <div class="layui-side layui-bg-black">
         <div class="user-photo">
             <a class="img" title="我的头像" ><img src="../../public/img/face.jpg" class="userAvatar"></a>
-            <p>你好！<span class="adminUser">{{ user_info.adminUser }}</span>, 欢迎登录</p>
+            <p>你好！<span class="adminUser">{{ user_info['adminUser'] }}</span>, 欢迎登录</p>
         </div>
         <!-- 搜索 -->
         <div class="layui-form component">
@@ -72,13 +73,13 @@
             <i class="layui-icon">&#xe615;</i>
         </div>
 
-        <div class="navBar layui-side-scroll" id="navBar">
-            <ul class="layui-nav layui-nav-tree">
-                <li class="layui-nav-item layui-this">
-                    <a href="javascript:;" data-url="{{ url('index/index') }}"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
-                </li>
-            </ul>
-        </div>
+{#        <div class="navBar layui-side-scroll" id="navBar">#}
+{#            <ul class="layui-nav layui-nav-tree">#}
+{#                <li class="layui-nav-item layui-this">#}
+{#                    <a href="javascript:;" data-url="{{ url('index/index') }}"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
     </div>
     <!-- 右侧内容 -->
     <div class="layui-body layui-form">

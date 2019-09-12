@@ -24,7 +24,12 @@ class LoginController extends ControllerBase{
             $date = $this->checkAction($post);
             if($date['date'] == 'success'){
                 //登陆成功
-                $this->session->set("user_info",$date['user_info']);
+                $this->session->set("userInfo",[
+                    'id'         => $date['userInfo']->id,
+                    'aId'        => $date['userInfo']->aId,
+                    'adminUser'  => $date['userInfo']->adminUser,
+                    'name'       => $date['userInfo']->name,
+                ]);
 //                $this->flash->success($data['msg']);
                 //加入系统登陆日记
                 //跳转
@@ -49,7 +54,7 @@ class LoginController extends ControllerBase{
         if(!empty($info)){
             $data['date'] = 'success';
             $data['msg'] = '验证成功';
-            $data['user_info'] = $info ;
+            $data['userInfo'] = $info ;
         }
         return $data;
     }
@@ -59,10 +64,10 @@ class LoginController extends ControllerBase{
      * @param $userId
      */
     public function outAction(){
-        $session = $this->seeison->get('userId');
+        $session = $this->seeison->get('userInfo');
         //删除session
         if(!empty($session)){
-           $this->seeison->remove('userId');
+           $this->seeison->remove('userInfo');
         }
         return $this->reponse->redirect('login/index');
     }
